@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FullCalendar Example</title>
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #calendar {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://import20240918001333.azurewebsites.net/uploads/hondacivic2.jpg" alt="Imagen del vehículo">
+  <h1>Calendario de Citas</h1>
+  <div id="calendar"></div>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true,
+        select: function(info) {
+          // Manejar la selección de fechas
+          var title = prompt('Introduce el título de la cita:');
+          var eventData;
+          if (title) {
+            eventData = {
+              title: title,
+              start: info.startStr,
+              end: info.endStr
+            };
+            calendar.addEvent(eventData);
+
+            // Llamar a la función para enviar la cita al servidor
+            enviarCitaAlServidor(eventData);
+          }
+          calendar.unselect();
+        }
+      });
+
+      calendar.render();
+    });
+
+    function enviarCitaAlServidor(eventData) {
+      fetch('https://import20240918001333.azurewebsites.net/api/Citas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          titulo: eventData.title,
+          fechaInicio: eventData.start,
+          fechaFin: eventData.end
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Cita guardada:', data);
+      })
+      .catch((error) => {
+        console.error('Error al guardar la cita:', error);
+      });
+    }
+  </script>
+
+</body>
+</html>

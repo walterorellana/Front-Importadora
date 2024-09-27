@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Belteton</title>
+    <link rel="stylesheet" href="/css/Pclient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="/javascript/Pagpricli.js"></script>
+</head>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <div class="user-actions">
+            <button id="register-button" class="register-button">Inicio de Sesión</button>
+            <script>
+                document.getElementById('register-button').addEventListener('click', function () {
+                    window.location.href = 'login.html';
+                });
+            </script>
+            <button id="registrarme" class="registrarme">Registrarme</button>
+            <script>
+                document.getElementById('registrarme').addEventListener('click', function () {
+                    window.location.href = 'UsuarioNew.html';
+                });
+            </script>
+            <div class="user-info">
+                <span id="user-name"></span>
+                <button id="logout-button" style="display: none;">Cerrar Sesión</button>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="add-button-container">
+        <button id="Agregar-Vehiculo" class="Agregar-Vehiculo" style="display: none;">Agregar</button>
+        <script>
+            document.getElementById('Agregar-Vehiculo').addEventListener('click', function () {
+                window.location.href = 'formvehi.html';
+            });
+        </script>
+    </div>
+
+    <div class="view-citas-button-container">
+        <button id="Ver-Citas" class="view-citas" style="display: none;">Ver Citas Hechas</button>
+        <script>
+            document.getElementById('Ver-Citas').addEventListener('click', function () {
+                window.location.href = 'Citas.html';
+            });
+        </script>
+    </div>
+
+    <div class="filters-section">
+        <h2>Filtros</h2>
+        <form id="filters-form">
+
+
+            <div class="filter-group">
+                <label for="price-range">Rango de precio:</label>
+                <input type="range" id="price-range" name="price-range" min="0" max="1000000" step="1000">
+            </div>
+
+            <div class="filter-group">
+                <label for="year-range">Año:</label>
+                <input type="number" id="year-range" name="year-range" min="1990" max="2024" placeholder="Año">
+            </div>
+
+            <div class="filter-group">
+                <label for="name-search">Buscar por nombre:</label>
+                <input type="text" id="name-search" name="name-search" placeholder="Buscar por nombre">
+            </div>
+
+
+
+            <button type="submit">Aplicar Filtros</button>
+        </form>
+    </div>
+
+    <div class="content-section" id="content-section">
+        <div class="content-card">
+            <img src="/Imagenes/Craga.png" alt="Imagen de vehículo"
+                onerror="this.onerror=null; this.src='/Imagenes/Craga.png';">
+            <div class="card-info">
+                <div class="vehicle-info">
+                    <p>Vehículo 1<br>Año modelo</p>
+                    <p class="price">Precio</p>
+                </div>
+                <div class="buttons">
+                    <button class="eliminar" style="display: none;">Eliminar</button>
+                    <button id="Actualiza" class="actualizar" style="display: none;">Actualizar</button>
+                    <script>
+                        document.getElementById('Actualiza').addEventListener('click', function () {
+                            window.location.href = 'formvehi.html'; // Ruta correcta al archivo login.html
+                        });
+                    </script>
+                    <button id="mas-info" class="mas-info">Más Información</button>
+                    <script>
+                        document.getElementById('mas-info').addEventListener('click', function () {
+                            window.location.href = 'dtavehicu.html'; // Ruta correcta al archivo login.html
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="content-section" id="content-section"></div>
+    <div id="pagination"></div>
+
+</body>
+
+</html>

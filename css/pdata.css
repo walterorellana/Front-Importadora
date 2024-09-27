@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background: linear-gradient(to right, #620B0B, #960707, #B22709); /* Gradiente con los tres colores */
+    padding: 0 20px;
+    color: white;
+    border-bottom-left-radius: 20px; /* Redondea el margen inferior izquierdo */
+    border-bottom-right-radius: 20px; /* Redondea el margen inferior derecho */
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 80px;
+}
+.social-media i {
+    font-size: 24px;
+    color: white;
+    margin-left: 20px; /* Aumentar espacio entre los iconos */
+}
+.logo {
+    font-size: 24px;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+}
+.social-media img {
+    height: 40px;
+    margin: 0 10px;
+}
+.register-button {
+    background-color: #960707;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.user-icon {
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Estilo para el contenedor del menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px; /* Ajuste la distancia entre el botón y el contenido */
+}
+
+/* Estilo para el botón */
+.dropbtn {
+    background-color: #620B0B;
+    color: #620B0B;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    border-radius: 0 0 20px 20px; /* Semicírculo invertido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(360deg); /* Rotar el botón */
+}
+
+/* Flecha dentro del botón */
+.arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    transform: rotate(180deg); /* Rotar la flecha hacia arriba */
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    white-space: nowrap; /* Para que el menú sea horizontal */
+    top: 100%; /* Para colocar el menú debajo del botón */
+    left: 0; /* Inicialmente oculto */
+}
+
+/* Opciones del menú desplegable */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block; /* Alinear horizontalmente las opciones */
+}
+
+/* Cambia el color de fondo al pasar el ratón sobre una opción */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Cambia el color del botón cuando el usuario pasa el ratón sobre él */
+.dropdown:hover .dropbtn {
+    background-color: #4c0d0d;
+}
+
+/* Mostrar el menú desplegable al hacer clic en el botón */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: row; /* Alinear las opciones horizontalmente */
+    align-items: center;
+    justify-content: center;
+}
+
+.statistics-section {
+    margin-left: 350px;
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .statistics-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de los elementos canvas */
+  canvas {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }

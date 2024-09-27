@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importadora Belteton</title>
+  <link rel="stylesheet" href="/css/formveh.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="/javascript/form.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
+    </div>
+    <div class="social-media">
+      <div class="social-media">
+        <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+    </div>
+
+  </header>
+  <main>
+    <div class="form-container">
+      <form id="vehicleForm">
+        <div class="form-group">
+          <label for="nombre">Nombre de Vehículo:</label>
+          <input type="text" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+          <label for="danio-principal">Daño Principal:</label>
+          <input type="text" id="danio-principal" name="danio-principal">
+        </div>
+        <div class="form-group">
+          <label for="danio-secundario">Daño Secundario:</label>
+          <input type="text" id="danio-secundario" name="danio-secundario">
+        </div>
+        <div class="form-group">
+          <label for="kilometraje">Kilometraje:</label>
+          <input type="text" id="kilometraje" name="kilometraje">
+        </div>
+        <div class="form-group">
+          <label for="precio">Precio:</label>
+          <input type="text" id="precio" name="precio">
+        </div>
+        <div class="form-group">
+          <label for="anio">Año:</label>
+          <input type="text" id="anio" name="anio">
+        </div>
+        <div class="form-group">
+          <label for="motor">Motor:</label>
+          <input type="text" id="motor" name="motor">
+        </div>
+        <div class="form-group">
+         <label for="transmicion">Transmisión:</label>
+          <input type="text" id="transmicion" name="transmicion">
+        </div>
+        <div class="form-group">
+          <label for="combustible">Combustible:</label>
+          <input type="text" id="combustible" name="combustible">
+        </div>
+        <div class="form-group">
+          <label for="interior">Interior:</label>
+          <input type="text" id="interior" name="interior">
+        </div>
+        <div class="form-group">
+          <label for="cilindrada">Cilindrada:</label>
+          <input type="text" id="cilindrada" name="cilindrada">
+        </div>
+        <div class="form-group">
+          <label for="serie">Serie:</label>
+          <input type="text" id="serie" name="serie">
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo:</label>
+          <input type="text" id="tipo" name="tipo">
+        </div>
+        <div class="form-group">
+          <label for="detalles-equipo">Detalles de Equipo:</label>
+          <textarea id="detalles-equipo" name="detalles-equipo"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="especificaciones-tecnicas">Especificaciones Técnicas:</label>
+          <textarea id="especificaciones-tecnicas" name="especificaciones-tecnicas"></textarea>
+        </div>
+
+
+      </form>
+      <!-- Formulario de subir fotos (oculto inicialmente) -->
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="fotoFile">Fotos:</label>
+          <input type="file" id="fotoFile" name="fotoFiles" multiple required>
+        </div>
+        <button type="submit" id="registerButton" class="btn btn-primary" onclick="registrarVehiculo(event)">Registrar Vehículo</button>
+        <button type="button" id="updateButton" class="btn btn-secondary" style="display:none;" onclick="actualizarVehiculo(event)">Actualizar Vehículo</button>
+      </form>
+
+      
+    </div>
+  </main>
+</body>
+
+</html>

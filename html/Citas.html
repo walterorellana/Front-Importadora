@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importadora Belteton</title>
+  <link rel="stylesheet" href="/css/sms.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+
+  <script src="/javascript/citas.js"></script>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+  <!-- FullCalendar idioma español -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* Contenedor que alinea el calendario y la lista horizontalmente */
+    /* Contenedor principal para alinear el calendario y la lista */
+    .flex-container {
+      display: flex;
+      /* Alinea los elementos en una fila */
+      flex-direction: row;
+      /* Fuerza que sea en fila */
+      justify-content: space-between;
+      /* Espacio entre los elementos */
+      align-items: flex-start;
+      /* Alinea ambos elementos desde la parte superior */
+      gap: 20px;
+      /* Añade un pequeño espacio entre el calendario y la lista */
+      width: 100%;
+      /* Asegura que el contenedor ocupe todo el ancho */
+      box-sizing: border-box;
+      /* Incluye padding y border en el ancho total */
+    }
+
+    /* Estilo para el calendario */
+    #calendar {
+      /* El calendario crecerá según el espacio disponible */
+      width: 50%;
+      /* O asignar un tamaño fijo si prefieres */
+      background-color: #fff;
+    }
+
+    /* Estilo para la lista de citas */
+    #citas-list {
+      width: 50%;
+      /* Lista de citas ocupa el 30% del contenedor */
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      /* Incluye padding en el ancho total */
+    }
+
+    #citas-ul {
+      list-style-type: none;
+      /* Elimina las viñetas de la lista */
+      padding-left: 0;
+    }
+
+    #citas-ul li {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      /* Coloca el contenido y los botones alineados */
+      align-items: center;
+    }
+
+    .delete-btn,
+    .update-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .update-btn {
+      background-color: #4CAF50;
+    }
+
+    .user-info {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    #user-name {
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    #logout-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    #logout-button:hover {
+      background-color: #d32f2f;
+    }
+
+
+    .view-citas-button-container {
+      position: absolute;
+      top: 110px;
+      right: 200px;
+      z-index: 1000;
+    }
+
+    .modal {
+      display: none;
+    }
+
+    /* Media Query para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .flex-container {
+        flex-direction: column;
+        /* Cambia la disposición a columna */
+        gap: 10px;
+        /* Reduce el espacio entre el calendario y la lista */
+      }
+
+      /* El calendario y la lista ocuparán el 100% del ancho en pantallas pequeñas */
+      #calendar,
+      #citas-list {
+        width: 100%;
+      }
+
+      /* Reducir el tamaño del padding y otros elementos en la lista */
+      #citas-list {
+        padding: 15px;
+      }
+    }
+
+    /* Media Query para pantallas aún más pequeñas (ej. móviles) */
+    @media (max-width: 480px) {
+      .flex-container {
+        gap: 5px;
+      }
+
+      /* Ajustar el calendario y lista para pantallas muy pequeñas */
+      #calendar,
+      #citas-list {
+        width: 100%;
+        font-size: 14px;
+        /* Reducir el tamaño de fuente si es necesario */
+      }
+
+      /* Reducir el padding del contenido de la lista */
+      #citas-list {
+        padding: 10px;
+      }
+
+      /* Ajustar los botones en la lista */
+      .delete-btn,
+      .update-btn {
+        padding: 4px 8px;
+      }
+
+
+    }
+    @media (max-width: 768px) {
+      header {
+          flex-direction: column; /* Cambiar la dirección a columna en pantallas pequeñas */
+          height: auto; /* Dejar que el contenido determine la altura */
+          padding: 10px;
+      }
+  
+      .logo img {
+          height: 50px; /* Reducir el tamaño del logo en pantallas pequeñas */
+      }
+  
+      .social-media a {
+          font-size: 20px; /* Reducir el tamaño de los íconos en pantallas pequeñas */
+      }
+  
+      .user-info {
+          margin-top: 10px; /* Añadir margen para separar del resto del contenido */
+      }
+  }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
+    </div>
+    <div class="social-media">
+      <div class="social-media">
+        <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+    </div>
+    <div class="user-info">
+      <span id="user-name"></span>
+      <button id="logout-button" style="display: none;">Cerrar Sesión</button>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div id="calendar"></div>
+    <div id="citas-list">
+      <h2>Lista de Citas</h2>
+      <ul id="citas-ul">
+        <!-- Aquí se agregarán las citas de la API -->
+
+      </ul>
+    </div>
+    <!-- Modal HTML -->
+    <div class="modal fade" id="citaModal" tabindex="-1" aria-labelledby="citaModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="citaModalLabel">Detalles de la Cita</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="fs-5">Información de la Cita</h2>
+            <p><strong>Título:</strong> <span id="cita-titulo"></span></p>
+            <p><strong>Fecha Cita:</strong> <span id="cita-fecha"></span></p>
+            <p><strong>Fecha Vencimiento:</strong> <span id="ven-fecha"></span></p>
+            <p><strong>Teléfono:</strong> <span id="cita-telefono"></span></p>
+            <p><strong>Correo:</strong> <span id="cita-correo"></span></p>
+            <p><strong>Estado:</strong> <span id="cita-estado"></span></p>
+            <p><strong>Canal de preferencia:</strong> <span id="cita-canal"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para Actualizar la Cita -->
+    <div class="modal fade" id="actualizarCitaModal" tabindex="-1" aria-labelledby="actualizarCitaModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="actualizarCitaModalLabel">Actualizar Cita</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="actualizarCitaForm">
+              <div class="mb-3">
+                <label for="actualizarTitulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="actualizarTitulo" required>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarFechaInicio" class="form-label">Fecha Inicio</label>
+                <input type="date" class="form-control" id="actualizarFechaInicio" required>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarFechaFin" class="form-label">Fecha Fin</label>
+                <input type="date" class="form-control" id="actualizarFechaFin" required>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarTelefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="actualizarTelefono" required>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarCorreo" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="actualizarCorreo" required>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarDepartamento" class="form-label">Canal</label>
+                <input type="text" class="form-control" id="actualizarDepartamento" disabled>
+              </div>
+              <div class="mb-3">
+                <label for="actualizarEstado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="actualizarEstado" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="guardarCambiosBtn">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'es', // Establecer el idioma a español
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: '/api/citas',
+      });
+
+      calendar.render();
+    });
+  </script>
+</body>
+
+</html>

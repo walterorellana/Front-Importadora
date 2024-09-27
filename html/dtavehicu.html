@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Belteton</title>
+    <link rel="stylesheet" href="/css/dtavehicu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="/javascript/dtaveh.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
+        </div>
+        <div class="social-media">
+            <div class="social-media">
+                <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+        <div class="user-info">
+            <span id="user-name"></span>
+            <button id="logout-button" style="display: none;">Cerrar Sesión</button>
+          </div>
+    </header>
+
+    
+
+    <div class="main-content">
+        <div class="image-section">
+            <img id="main-image" src="/Imagenes/vehiculo-grande.jpg" alt="Vehículo Grande" class="main-image">
+            <div id="thumbnail-images" class="thumbnail-images">
+                <!-- Las imágenes en miniatura se insertarán aquí -->
+            </div>
+        </div>
+
+        <div class="details-section">
+            <div class="details-box">
+                <h3>Detalles del Vehículo</h3>
+                <p id="vehicle-details">Aquí van los detalles del vehículo.</p>
+            </div>
+            <div class="details-box">
+                <h3>Especificaciones</h3>
+                <p id="vehicle-specs">Aquí van las especificaciones del vehículo.</p>
+            </div>
+
+            <button id="Cotizar" onclick="redirectToCotizar(vehicleId)">Cotizar</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>

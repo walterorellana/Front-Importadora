@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importadora Belteton</title>
+  <link rel="stylesheet" href="/css/pdata.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="/javascript/pagdata.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
+    </div>
+    <div class="social-media">
+      <div class="social-media">
+        <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+    </div>
+    <div class="user-actions">
+      <button class="register-button">Registrar</button>
+      <img src="user-icon.png" alt="Usuario" class="user-icon">
+    </div>
+  </header>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">
+      <div class="arrow"></div>
+    </button>
+    <div class="dropdown-content">
+      <a href="#opcion1">Opción 1</a>
+      <a href="#opcion2">Opción 2</a>
+      <a href="#opcion3">Opción 3</a>
+    </div>
+  </div>
+  <div class="statistics-section">
+    <h2>Estadísticas de Ventas</h2>
+    <canvas id="salesChart"></canvas>
+    <h2>Estadísticas de Pedidos</h2>
+    <canvas id="ordersChart"></canvas>
+    <h2>Datos de Ventas</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Mes</th>
+          <th>Ventas</th>
+          <th>Pedidos</th>
+        </tr>
+      </thead>
+      <tbody id="data-table-body">
+        <!-- Las filas de datos se llenarán dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
