@@ -178,6 +178,13 @@ async function subirFotos(vehicleId) {
       }
 
       const result = await response.json();
+
+      alert("Vehiculo Guardado");
+
+      // Restablecer el formulario
+      document.getElementById("vehicleForm").reset();
+
+      document.getElementById("uploadForm").reset();
     //   console.log('Fotos subidas con éxito:', result);
   } catch (error) {
       console.error('Error al subir las fotos:', error);

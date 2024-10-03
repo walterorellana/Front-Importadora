@@ -14,6 +14,7 @@ body{
     align-items: center; /* Centrar verticalmente */
     justify-content: center;
     flex-direction: column;
+    min-height: 100vh; 
     height: 100vh;
 }
 
@@ -216,22 +217,27 @@ body{
 /* Estilos generales para pantallas pequeñas */
 @media (max-width: 768px) {
     .container {
-        width: 100%;
+        width: 90%; /* Asegura que el contenedor se ajuste bien a la pantalla pequeña */
         min-height: 450px;
-        margin: 20px 0;
-    }
-
-    .container form {
-        padding: 20px;
-    }
-
-    .social-icons img {
-        width: 120px; /* Ajustar el tamaño de la imagen */
+        margin-top: 20px;
     }
 
     .container button {
-        padding: 10px 35px; /* Ajustar el padding del botón */
-        font-size: 10px;
+        padding: 10px 35px;
+        font-size: 14px;
+        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+    }
+
+    .container input {
+        font-size: 14px;
+    }
+
+    .container form {
+        padding: 20px; /* Más espacio en el formulario */
+    }
+
+    .social-icons img {
+        width: 120px;
     }
 }
 @media (max-width: 480px) {

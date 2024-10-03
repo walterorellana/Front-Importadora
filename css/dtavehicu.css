@@ -1,324 +1,186 @@
+/* Estilo general del cuerpo */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Usa Google Fonts para una tipografía moderna */
+    background-color: #f7f7f7; /* Fondo claro que contrasta con el contenido */
 }
+.logo img {
+    filter: invert(1); /* Invertir los colores para hacer la imagen blanca */
+}
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    background: linear-gradient(to right, #620B0B, #960707, #B22709); /* Gradiente con los tres colores */
+    background: linear-gradient(to right, #620B0B, #960707, #B22709);
     padding: 0 20px;
     color: white;
-    border-bottom-left-radius: 20px; /* Redondea el margen inferior izquierdo */
-    border-bottom-right-radius: 20px; /* Redondea el margen inferior derecho */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
-.logo {
-    display: flex;
-    align-items: center;
-}
+
 .logo img {
     height: 80px;
 }
+
 .social-media i {
     font-size: 24px;
     color: white;
-    margin-left: 20px; /* Aumentar espacio entre los iconos */
-}
-.logo {
-    font-size: 24px;
+    margin-left: 20px;
 }
 
-.social-media {
-    display: flex;
-    align-items: center;
-}
-.social-media img {
-    height: 40px;
-    margin: 0 10px;
-}
-.register-button {
+.register-button, #logout-button {
     background-color: #960707;
     border: none;
     padding: 10px 20px;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Añadir transición */
 }
+
+.register-button:hover, #logout-button:hover {
+    background-color: #b22709;
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
 .user-icon {
     height: 50px;
     border-radius: 50%;
     margin-left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra a la imagen del usuario */
 }
 
-/* Estilo para el contenedor del menú desplegable */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 20px; /* Ajuste la distancia entre el botón y el contenido */
-}
-
-/* Estilo para el botón */
-.dropbtn {
-    background-color: #620B0B;
-    color: #620B0B;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    width: 40px;
-    height: 30px;
-    border-radius: 0 0 20px 20px; /* Semicírculo invertido */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(360deg); /* Rotar el botón */
-}
-
-/* Flecha dentro del botón */
-.arrow {
-    width: 0; 
-    height: 0; 
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-    transform: rotate(180deg); /* Rotar la flecha hacia arriba */
-}
-
-/* Contenedor del menú desplegable */
+/* Menú desplegable */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    white-space: nowrap; /* Para que el menú sea horizontal */
-    top: 100%; /* Para colocar el menú debajo del botón */
-    left: 0; /* Inicialmente oculto */
+    top: 100%;
+    border-radius: 10px; /* Bordes redondeados */
 }
 
-/* Opciones del menú desplegable */
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: inline-block; /* Alinear horizontalmente las opciones */
+    display: block;
+    transition: background-color 0.2s; /* Suave transición al hacer hover */
 }
 
-/* Cambia el color de fondo al pasar el ratón sobre una opción */
 .dropdown-content a:hover {
     background-color: #ddd;
 }
 
-/* Cambia el color del botón cuando el usuario pasa el ratón sobre él */
-.dropdown:hover .dropbtn {
-    background-color: #4c0d0d;
-}
-
-/* Mostrar el menú desplegable al hacer clic en el botón */
-.dropdown:hover .dropdown-content {
-    display: flex;
-    flex-direction: row; /* Alinear las opciones horizontalmente */
-    align-items: center;
-    justify-content: center;
-}
-
+/* Sección de estadísticas */
 .statistics-section {
     margin-left: 350px;
     width: 80%;
     padding: 20px;
-  }
-  
-  .statistics-section h2 {
-    margin-bottom: 20px;
-  }
+}
 
-  .main-content {
+/* Contenido principal */
+.main-content {
     display: flex;
     padding: 20px;
-  }
-  
-  .image-section {
+}
+
+.image-section {
     flex: 2;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-  
+
 .main-image {
-    width: 50%; /* Tamaño ajustable según el contenedor */
+    width: 56%; /* Ajustar tamaño de la imagen principal */
     height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa para la imagen */
+    transition: transform 0.3s ease; /* Transición para el hover */
 }
-  
+
+.main-image:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
 .thumbnail-images {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
 }
-  
+
 .thumbnail-images img {
     width: 100px;
     height: 100px;
     cursor: pointer;
-    transition: transform 0.2s; /* Efecto al pasar el mouse */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición de zoom y sombra */
 }
 
 .thumbnail-images img:hover {
-    transform: scale(1.1); /* Zoom al pasar el mouse por encima */
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra al pasar el ratón */
 }
-  
+
+/* Detalles */
 .details-section {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 20%;
+    width: 25%;
 }
-  
+
 .details-box {
-    background-color: #f0f0f0;
-    padding: 50px;
-    border-radius: 30px;
-    position: relative;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
-  
+
+.details-box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efecto de hover en los detalles */
+}
+
 .details-box h3 {
     margin-top: 0;
     background-color: #871515;
     color: white;
     padding: 10px;
-    border-radius: 10px 10px 10px 10px;
-    position: absolute;
-    top: -20px;
-    left: 50px;
+    border-radius: 10px;
+    text-align: center; /* Centrar el texto de los títulos */
 }
-  
-.details-box p,
-.details-box button {
+
+.details-box p {
     margin-top: 10px;
+    color: #333;
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
+    line-height: 1.5; /* Mejorar la legibilidad */
 }
 
-.user-info {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 20px;
-}
-
-#user-name {
-  margin-right: 15px;
-  font-weight: bold;
-}
-
-#logout-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-#logout-button:hover {
-  background-color: #d32f2f;
-}
-/* Estilos para pantallas medianas (tablets) */
+/* Responsivo */
 @media (max-width: 768px) {
-  .main-content {
-      flex-direction: column;
-      padding: 10px;
-  }
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
 
-  .image-section {
-      flex: none;
-      width: 100%;
-  }
+    .image-section, .details-section {
+        width: 100%;
+    }
 
-  .main-image {
-      width: 100%; /* La imagen principal ocupa el ancho completo */
-  }
+    .main-image {
+        width: 90%;
+    }
 
-  .details-section {
-      width: 100%;
-  }
-
-  .details-box {
-      padding: 20px;
-      border-radius: 15px;
-  }
-
-  .details-box h3 {
-      left: 20px;
-      font-size: 16px;
-  }
-
-  .dropdown-content {
-      min-width: 100px; /* Ajuste del ancho en pantallas medianas */
-  }
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-  header {
-      flex-direction: column;
-      height: auto;
-      padding: 10px;
-  }
-
-  .logo img {
-      height: 60px;
-  }
-
-  .social-media i {
-      font-size: 20px;
-  }
-
-  .main-content {
-      flex-direction: column;
-      padding: 10px;
-  }
-
-  .image-section {
-      flex: none;
-      width: 100%;
-  }
-
-  .main-image {
-      width: 100%;
-      height: auto; /* La imagen principal se ajusta completamente al contenedor */
-  }
-
-  .thumbnail-images {
-      justify-content: center;
-      gap: 5px;
-  }
-
-  .thumbnail-images img {
-      width: 80px;
-      height: 80px;
-  }
-
-  .details-section {
-      width: 100%;
-      gap: 15px;
-  }
-
-  .details-box {
-      padding: 20px;
-      border-radius: 15px;
-  }
-
-  .details-box h3 {
-      left: 20px;
-      font-size: 16px;
-  }
-
-  #Cotizar {
-      width: 100%;
-      padding: 10px;
-  }
-
-  .dropdown-content {
-      flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
-      width: 100%;
-  }
+    .details-box {
+        padding: 20px;
+    }
 }

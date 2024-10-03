@@ -2,6 +2,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+.logo img {
+  filter: invert(1); /* Invertir los colores para hacer la imagen blanca */
+}
 header {
     display: flex;
     justify-content: space-between;

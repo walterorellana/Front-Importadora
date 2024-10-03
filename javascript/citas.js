@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }));
 
         // Pasar los eventos al calendario
+        console.log(citas)
         successCallback(events);
         renderCitasList(citas);
         // Vincular la función actualizaCita al botón "Actualizar" del modal
@@ -194,7 +195,7 @@ async function verCita(idpedido) {
     document.getElementById("cita-estado").textContent = cita.estado;
     document.getElementById("cita-canal").textContent = cita.nombre_dep;
 
-    // console.log("Mostrando el modal"); // Log para depuración antes de mostrar el modal
+    console.log("Mostrando el modal"); // Log para depuración antes de mostrar el modal
 
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById("citaModal"));

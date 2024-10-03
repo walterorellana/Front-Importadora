@@ -4,6 +4,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
 }
+.logo img {
+    filter: invert(1); /* Invertir los colores para hacer la imagen blanca */
+}
 
 /* Header */
 header {
@@ -45,485 +48,88 @@ header {
     background-color: #b22222;
 }
 
-/* Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.dropbtn {
-    background-color: #620B0B;
-    color: #620B0B;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    width: 40px;
-    height: 30px;
-    border-radius: 0 0 20px 20px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(360deg); 
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    white-space: nowrap;
-    top: 100%; 
-    left: 0;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #4c0d0d;
-}
-
-.dropdown:hover .dropdown-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Sección de filtros */
-.filters-section {
-    position: absolute;
-    top: 220px;
-    left: 40px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Ajustar tamaño y apariencia de las tarjetas */
+.card {
+    margin: 20px auto;
+    transition: transform 0.3s ease;
     max-width: 300px;
-    border: 1px solid #ddd;
-    max-width: 90%; /* Asegurar que se ajuste en pantallas pequeñas */
-    z-index: 1000;  /* Asegurar que esté por encima de otros elementos */
-}
-
-.filters-section h2 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    color: #333;
-}
-
-.filters-section label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.filters-section input[type="range"],
-.filters-section input[type="checkbox"] {
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.filters-section button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.filters-section button:hover {
-    background-color: #2980b9;
-}
-
-/* Responsividad para la sección de filtros */
-@media (max-width: 768px) {
-    .filters-section {
-        position: relative; /* Hacer que se mueva con el contenido */
-        max-width: 100%;
-        margin-bottom: 20px;
-        top: 0;  /* Colocar arriba del contenido en pantallas pequeñas */
-        left: 0;
-    }
-}
-
-/* Sección de contenido */
-.content-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-left: 350px;
-    margin-top: 50px;
-    padding: 20px;
-    gap: 20px;
-}
-
-/* Tarjetas de contenido */
-.content-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #c9c2c2;
     overflow: hidden;
-    width: 280px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
 }
 
-.content-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.card:hover {
+    transform: scale(1.05);
 }
 
-.content-card img {
-    width: 100%;
+/* Ajuste del tamaño de la imagen */
+.card img {
     height: 180px;
     object-fit: cover;
-    border-radius: 10px;
-}
-
-.card-info {
-    background-color: #a22d2d;
-    border-radius: 10px;
-    padding: 15px;
-    color: white;
-    text-align: left;
     width: 100%;
-    margin-top: -20px;
-    position: relative;
-    z-index: 1;
+    border-bottom: 1px solid #ddd;
 }
 
-.card-info p {
-    margin: 0;
-    margin-bottom: 10px;
+.card-body {
+    padding: 15px;
+    text-align: center;
 }
 
-.vehicle-info p {
-    margin: 0;
-    font-weight: bold;
+/* Contenedor de información */
+.info-container {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.vehicle-info .price {
-    font-size: 20px;
-    color: #f4d03f;
-    text-align: right;
-}
-
-/* Botones de las tarjetas */
+/* Estilo para los botones dentro del cuadro */
 .buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    padding: 10px 0;
 }
 
 .buttons button {
-    border: none;
-    border-radius: 20px;
-    padding: 8px 15px;
-    cursor: pointer;
+    flex: 1;
+    margin: 0 3px;
+    padding: 10px;
+    background-color: #960707;
     color: white;
-    transition: background-color 0.3s ease;
-}
-
-.eliminar {
-    background-color: #e74c3c;
-}
-
-.eliminar:hover {
-    background-color: #c0392b;
-}
-
-.actualizar {
-    background-color: #3498db;
-}
-
-.actualizar:hover {
-    background-color: #2980b9;
-}
-
-.mas-info {
-    background-color: #2ecc71;
-}
-
-.mas-info:hover {
-    background-color: #27ae60;
-}
-
-/* Botón para agregar vehículos */
-.add-button-container {
-    position: absolute;
-    top: 110px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.Agregar-Vehiculo {
-    background-color: #6d0303;
-    color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.Agregar-Vehiculo:hover {
-    background-color: #b40202;
+.buttons button:hover {
+    background-color: #b22222;
 }
-
-
-
-#pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#pagination button {
-    margin: 0 5px;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#pagination button:hover {
-    background-color: #3498db;
-    color: #fff;
-}
-
 .user-info {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-right: 20px;
-}
+  }
   
-#user-name {
+  #user-name {
     margin-right: 15px;
     font-weight: bold;
-}
+  }
   
-#logout-button {
+  #logout-button {
     background-color: #f44336;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-}
+  }
   
-#logout-button:hover {
+  #logout-button:hover {
     background-color: #d32f2f;
-}
+  }
   
-.view-citas-button-container {
-    position: absolute;
-    top: 110px;
-    right: 200px;
-    z-index: 1000;
-}
-
-.view-citas {
-    background-color: #6d0303;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.view-citas:hover {
-    background-color: #b40202;
-}
-
-/* Para dispositivos móviles pequeños (pantallas menores de 600px) */
-@media (max-width: 600px) {
-    /* Header */
-    header {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 10px;
-    }
-
-    .logo img {
-        height: 60px;
-    }
-
-    /* Botones de usuario */
-    .register-button,
-    .registrarme {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    /* Sección de filtros */
-    .filters-section {
-        position: relative;
-        max-width: 100%;
-        top: 0;
-        left: 0;
-        margin-top: 20px;
-        padding: 10px;
-    }
-
-    /* Sección de contenido */
-    .content-section {
-        margin-left: 0;
-        margin-top: 20px;
-        justify-content: center;
-    }
-
-    .content-card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* Botón de agregar vehículo */
-    .add-button-container {
-        top: 80px;
-        right: 10px;
-    }
-
-    /* Botón de ver citas */
-    .view-citas-button-container {
-        top: 80px;
-        right: 120px;
-    }
-}
-
-/* Para pantallas medianas (600px a 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-    /* Header */
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        height: 80px;
-    }
-
-    .logo img {
-        height: 70px;
-    }
-
-    /* Sección de filtros */
-    .filters-section {
-        position: relative;
-        max-width: 100%;
-        margin-top: 10px;
-        left: 0;
-        top: 0;
-    }
-
-    /* Sección de contenido */
-    .content-section {
-        margin-left: 0;
-        margin-top: 20px;
-        justify-content: space-around;
-    }
-
-    .content-card {
-        width: 45%;
-    }
-
-    /* Botón de agregar vehículo */
-    .add-button-container {
-        top: 90px;
-        right: 20px;
-    }
-
-    /* Botón de ver citas */
-    .view-citas-button-container {
-        top: 90px;
-        right: 150px;
-    }
-}
-
-/* Para pantallas grandes (más de 1024px) */
-@media (min-width: 1025px) {
-    /* Sección de contenido */
-    .content-section {
-        margin-left: 350px;
-        margin-top: 50px;
-    }
-
-    .content-card {
-        width: 280px;
-    }
-}
-/* Para pantallas grandes (más de 1024px) */
-@media (min-width: 1025px) {
-    .add-button-container {
-        position: absolute;
-        top: 120px;
-        right: 20px;
-        z-index: 10;
-    }
-
-    .view-citas-button-container {
-        position: absolute;
-        top: 120px;
-        right: 160px;
-        z-index: 10;
-    }
-}
-
-/* Para pantallas medianas (600px a 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .add-button-container {
-        position: absolute;
-        top: 100px;
-        right: 10px;
-        z-index: 10;
-    }
-
-    .view-citas-button-container {
-        position: absolute;
-        top: 100px;
-        right: 120px;
-        z-index: 10;
-    }
-}
-
-/* Para dispositivos móviles pequeños (menos de 600px) */
-@media (max-width: 600px) {
-    .add-button-container,
-    .view-citas-button-container {
-        position: relative;
-        top: auto; /* Elimina la posición absoluta en móviles */
-        right: auto;
-        margin: 10px 0;
-        display: flex;
-        justify-content: center; /* Centra los botones */
-        width: 100%;
-    }
-
-    .Agregar-Vehiculo,
-    .view-citas {
-        width: 90%;
-        margin: 10px auto;
-    }
-}

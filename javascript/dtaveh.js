@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ? `https://import20240918001333.azurewebsites.net/uploads/${data.fotos[0].foto1.trim()}`
         : "/Imagenes/vehiculo-grande.jpg";
 
-    // console.log("Datos del vehículo:", data);
+     console.log("Datos del vehículo:", data);
 
     const thumbnailContainer = document.getElementById("thumbnail-images");
     thumbnailContainer.innerHTML = "";
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const details = document.getElementById("vehicle-details");
     details.innerHTML = `
-      Marca: ${data.nombreVehiculos}<br>
+      Modelo: ${data.nombreVehiculos}<br>
       Año: ${data.año}<br>
       Precio: ${data.precio}<br>
       Kilometrajes: ${data.kilometraje} km<br>
@@ -121,6 +121,13 @@ document.addEventListener("DOMContentLoaded", function () {
       Transmisión: ${data.transmision}<br>
       Combustible: ${data.combustible}<br>
       Cilindrada: ${data.cilindros}<br>
+    `;
+    const dallo = document.getElementById("vehicle-dallo");
+    dallo.innerHTML = `
+      Daño Principal: ${data.daPrincipal}<br>
+      Daño Secundario: ${data.daSecundario}<br>
+
+      Exterior/Interior: ${data.exteriorInterior}<br>
     `;
   }
 
