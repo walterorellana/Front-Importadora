@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           alert("Solicitud enviada con éxito");
           // console.log("Respuesta de la API:", data);
+          window.location.href = "Paginaprincipal.html";
         })
         .catch((error) => {
           console.error("Error:", error);

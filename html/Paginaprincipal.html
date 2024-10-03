@@ -7,120 +7,145 @@
     <title>Importadora Belteton</title>
     <link rel="stylesheet" href="/css/Pclient.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Color de fondo del body */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Ajustes para los botones dentro de la tarjeta */
+        .buttons button {
+            flex: 1;
+            margin: 5px;
+            padding: 2px 5px; /* Ajustar el padding para que sean más pequeños */
+        }
+
+        /* Opción alternativa para botones más pequeños usando Bootstrap */
+        .btn-sm {
+            padding: 2px 5px;
+            font-size: 0.875rem; /* Fuente más pequeña */
+        }
+
+        .card-body {
+            background-color: #b8b5b5; /* Fondo blanco para el card body */
+            border-radius: 5px; /* Bordes suaves */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+    </style>
     <script src="/javascript/Pagpricli.js"></script>
-</head>
+
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa">
-        </div>
-        <div class="social-media">
-            <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
-        <div class="user-actions">
-            <button id="register-button" class="register-button">Inicio de Sesión</button>
-            <script>
-                document.getElementById('register-button').addEventListener('click', function () {
-                    window.location.href = 'login.html';
-                });
-            </script>
-            <button id="registrarme" class="registrarme">Registrarme</button>
-            <script>
-                document.getElementById('registrarme').addEventListener('click', function () {
-                    window.location.href = 'UsuarioNew.html';
-                });
-            </script>
-            <div class="user-info">
-                <span id="user-name"></span>
-                <button id="logout-button" style="display: none;">Cerrar Sesión</button>
+        <div class="col-md-4">
+            <div class="logo">
+                <img src="/Imagenes/logonedro-removebg-preview.png" alt="Logo de la Empresa" class="img-fluid">
             </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="col-md-4 text-center">
+            <div class="social-media">
+                <a href="https://www.instagram.com/importadora_belteton?igsh=dHJ3dWR0c3I2anoz" target="_blank" class="mx-2">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61555166432049&mibextid=ZbWKwL" target="_blank" class="mx-2">
+                    <i class="fab fa-facebook-f fa-2x"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Acciones de usuario -->
+        <div class="col-md-4 text-end">
+            <div class="user-actions">
+                <button id="register-button" class="register-button">Inicio de Sesión</button>
+                <button id="registrarme" class="registrarme">Registrarme</button>
+                <div class="user-info mt-2">
+                    <span id="user-name"></span>
+                    <button id="logout-button" class="btn btn-danger mt-2" style="display: none;">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
 
         </div>
 
     </header>
 
-    <div class="add-button-container">
-        <button id="Agregar-Vehiculo" class="Agregar-Vehiculo" style="display: none;">Agregar</button>
-        <script>
-            document.getElementById('Agregar-Vehiculo').addEventListener('click', function () {
-                window.location.href = 'formvehi.html';
-            });
-        </script>
-    </div>
-
-    <div class="view-citas-button-container">
-        <button id="Ver-Citas" class="view-citas" style="display: none;">Ver Citas Hechas</button>
-        <script>
-            document.getElementById('Ver-Citas').addEventListener('click', function () {
-                window.location.href = 'Citas.html';
-            });
-        </script>
-    </div>
-
-    <div class="filters-section">
-        <h2>Filtros</h2>
-        <form id="filters-form">
-
-
-            <div class="filter-group">
-                <label for="price-range">Rango de precio:</label>
-                <input type="range" id="price-range" name="price-range" min="0" max="1000000" step="1000">
-            </div>
-
-            <div class="filter-group">
-                <label for="year-range">Año:</label>
-                <input type="number" id="year-range" name="year-range" min="1990" max="2024" placeholder="Año">
-            </div>
-
-            <div class="filter-group">
-                <label for="name-search">Buscar por nombre:</label>
-                <input type="text" id="name-search" name="name-search" placeholder="Buscar por nombre">
-            </div>
-
-
-
-            <button type="submit">Aplicar Filtros</button>
-        </form>
-    </div>
-
-    <div class="content-section" id="content-section">
-        <div class="content-card">
-            <img src="/Imagenes/Craga.png" alt="Imagen de vehículo"
-                onerror="this.onerror=null; this.src='/Imagenes/Craga.png';">
-            <div class="card-info">
-                <div class="vehicle-info">
-                    <p>Vehículo 1<br>Año modelo</p>
-                    <p class="price">Precio</p>
-                </div>
-                <div class="buttons">
-                    <button class="eliminar" style="display: none;">Eliminar</button>
-                    <button id="Actualiza" class="actualizar" style="display: none;">Actualizar</button>
-                    <script>
-                        document.getElementById('Actualiza').addEventListener('click', function () {
-                            window.location.href = 'formvehi.html'; // Ruta correcta al archivo login.html
-                        });
-                    </script>
-                    <button id="mas-info" class="mas-info">Más Información</button>
-                    <script>
-                        document.getElementById('mas-info').addEventListener('click', function () {
-                            window.location.href = 'dtavehicu.html'; // Ruta correcta al archivo login.html
-                        });
-                    </script>
-                </div>
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+           
+            <div>
+                <button id="Agregar-Vehiculo" class="btn btn-success me-2" style="display: none;">Agregar</button>
+                <button id="Ver-Citas" class="btn btn-info" style="display: none;">Ver Citas Hechas</button>
             </div>
         </div>
 
-    </div>
-    <div class="content-section" id="content-section"></div>
-    <div id="pagination"></div>
+        <div class="filters-section">
+            <form id="filters-form" class="row g-3">
+                <div class="col-md-4">
+                    <label for="price-range" class="form-label">Rango de precio:</label>
+                    <input type="range" id="price-range" name="price-range" class="form-range" min="0" max="1000000"
+                        step="1000">
+                </div>
+                <div class="col-md-4">
+                    <label for="year-range" class="form-label">Año:</label>
+                    <input type="number" id="year-range" name="year-range" class="form-control" min="1990" max="2024"
+                        placeholder="Año">
+                </div>
+                <div class="col-md-4">
+                    <label for="name-search" class="form-label">Buscar por nombre:</label>
+                    <input type="text" id="name-search" name="name-search" class="form-control"
+                        placeholder="Buscar por nombre">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+                </div>
+            </form>
+        </div>
 
+        <div class="container py-5">
+            <div class="row" id="content-section">
+                <!-- Aquí se agregarán dinámicamente las tarjetas -->
+            </div>
+        </div>
+
+        <!-- Paginación -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+
+                <li class="content-section" id="content-section"></li>
+                <li id="pagination"></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+    <script>
+        // Lógica de los botones
+        document.getElementById('register-button').addEventListener('click', function () {
+            window.location.href = 'login.html';
+        });
+        document.getElementById('registrarme').addEventListener('click', function () {
+            window.location.href = 'UsuarioNew.html';
+        });
+        document.getElementById('Agregar-Vehiculo').addEventListener('click', function () {
+            window.location.href = 'formvehi.html';
+        });
+        document.getElementById('Ver-Citas').addEventListener('click', function () {
+            window.location.href = 'Citas.html';
+        });
+        document.getElementById('mas-info').addEventListener('click', function () {
+            window.location.href = 'dtavehicu.html';
+        });
+        document.getElementById('Actualiza').addEventListener('click', function () {
+            window.location.href = 'formvehi.html';
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

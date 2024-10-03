@@ -7,6 +7,7 @@
   <title>Importadora Belteton</title>
   <link rel="stylesheet" href="/css/formveh.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="/javascript/form.js"></script>
 </head>
 
@@ -27,85 +28,137 @@
     </div>
 
   </header>
-  <main>
-    <div class="form-container">
-      <form id="vehicleForm">
-        <div class="form-group">
-          <label for="nombre">Nombre de Vehículo:</label>
-          <input type="text" id="nombre" name="nombre">
-        </div>
-        <div class="form-group">
-          <label for="danio-principal">Daño Principal:</label>
-          <input type="text" id="danio-principal" name="danio-principal">
-        </div>
-        <div class="form-group">
-          <label for="danio-secundario">Daño Secundario:</label>
-          <input type="text" id="danio-secundario" name="danio-secundario">
-        </div>
-        <div class="form-group">
-          <label for="kilometraje">Kilometraje:</label>
-          <input type="text" id="kilometraje" name="kilometraje">
-        </div>
-        <div class="form-group">
-          <label for="precio">Precio:</label>
-          <input type="text" id="precio" name="precio">
-        </div>
-        <div class="form-group">
-          <label for="anio">Año:</label>
-          <input type="text" id="anio" name="anio">
-        </div>
-        <div class="form-group">
-          <label for="motor">Motor:</label>
-          <input type="text" id="motor" name="motor">
-        </div>
-        <div class="form-group">
-         <label for="transmicion">Transmisión:</label>
-          <input type="text" id="transmicion" name="transmicion">
-        </div>
-        <div class="form-group">
-          <label for="combustible">Combustible:</label>
-          <input type="text" id="combustible" name="combustible">
-        </div>
-        <div class="form-group">
-          <label for="interior">Interior:</label>
-          <input type="text" id="interior" name="interior">
-        </div>
-        <div class="form-group">
-          <label for="cilindrada">Cilindrada:</label>
-          <input type="text" id="cilindrada" name="cilindrada">
-        </div>
-        <div class="form-group">
-          <label for="serie">Serie:</label>
-          <input type="text" id="serie" name="serie">
-        </div>
-        <div class="form-group">
-          <label for="tipo">Tipo:</label>
-          <input type="text" id="tipo" name="tipo">
-        </div>
-        <div class="form-group">
-          <label for="detalles-equipo">Detalles de Equipo:</label>
-          <textarea id="detalles-equipo" name="detalles-equipo"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="especificaciones-tecnicas">Especificaciones Técnicas:</label>
-          <textarea id="especificaciones-tecnicas" name="especificaciones-tecnicas"></textarea>
-        </div>
+  <main class="py-5 bg-light">
+    <div class="container">
+      <div class="card shadow-sm p-4">
+        <h3 class="card-title text-center mb-4">Registrar Vehículo</h3>
+        <form id="vehicleForm">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="nombre" class="form-label">Nombre de Vehículo:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del vehículo">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="danio-principal" class="form-label">Daño Principal:</label>
+                <input type="text" class="form-control" id="danio-principal" name="danio-principal" placeholder="Describe el daño principal">
+              </div>
+            </div>
+          </div>
 
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="danio-secundario" class="form-label">Daño Secundario:</label>
+                <input type="text" class="form-control" id="danio-secundario" name="danio-secundario" placeholder="Describe el daño secundario">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="kilometraje" class="form-label">Kilometraje:</label>
+                <input type="text" class="form-control" id="kilometraje" name="kilometraje" placeholder="Ejemplo: 50,000 km">
+              </div>
+            </div>
+          </div>
 
-      </form>
-      <!-- Formulario de subir fotos (oculto inicialmente) -->
-      <form id="uploadForm" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="fotoFile">Fotos:</label>
-          <input type="file" id="fotoFile" name="fotoFiles" multiple required>
-        </div>
-        <button type="submit" id="registerButton" class="btn btn-primary" onclick="registrarVehiculo(event)">Registrar Vehículo</button>
-        <button type="button" id="updateButton" class="btn btn-secondary" style="display:none;" onclick="actualizarVehiculo(event)">Actualizar Vehículo</button>
-      </form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio del vehículo">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="anio" class="form-label">Año:</label>
+                <input type="text" class="form-control" id="anio" name="anio" placeholder="Año de fabricación">
+              </div>
+            </div>
+          </div>
 
-      
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="motor" class="form-label">Motor:</label>
+                <input type="text" class="form-control" id="motor" name="motor" placeholder="Motor del vehículo">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="transmicion" class="form-label">Transmisión:</label>
+                <input type="text" class="form-control" id="transmicion" name="transmicion" placeholder="Manual o Automático">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="combustible" class="form-label">Combustible:</label>
+                <input type="text" class="form-control" id="combustible" name="combustible" placeholder="Gasolina, Diésel, etc.">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="interior" class="form-label">Interior:</label>
+                <input type="text" class="form-control" id="interior" name="interior" placeholder="Detalles del interior">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="cilindrada" class="form-label">Cilindrada:</label>
+                <input type="text" class="form-control" id="cilindrada" name="cilindrada" placeholder="Capacidad del motor">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="serie" class="form-label">Serie:</label>
+                <input type="text" class="form-control" id="serie" name="serie" placeholder="Número de serie">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="tipo" class="form-label">Tipo:</label>
+                <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo de vehículo">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline">
+                <label for="detalles-equipo" class="form-label">Detalles de Equipo:</label>
+                <textarea class="form-control" id="detalles-equipo" name="detalles-equipo" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="especificaciones-tecnicas" class="form-label">Especificaciones Técnicas:</label>
+            <textarea class="form-control" id="especificaciones-tecnicas" name="especificaciones-tecnicas" rows="3" placeholder="Detalles técnicos del vehículo"></textarea>
+          </div>
+        </form>
+
+        <!-- Formulario de subir fotos -->
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="form-group mb-3">
+            <label for="fotoFile" class="form-label">Fotos:</label>
+            <input type="file" class="form-control" id="fotoFile" name="fotoFiles" multiple required>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="submit" id="registerButton" class="btn btn-success" onclick="registrarVehiculo(event)">Registrar Vehículo</button>
+            <button type="button" id="updateButton" class="btn btn-warning" style="display:none;" onclick="actualizarVehiculo(event)">Actualizar Vehículo</button>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
